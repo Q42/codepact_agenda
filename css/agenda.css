@@ -15,6 +15,7 @@
 }
 
 .card {
+  position: relative;
   width: 250px;
   height: 250px;
   overflow: hidden;
@@ -23,6 +24,10 @@
   padding: 30px;
   border-radius: 1px;
   box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.25);
+}
+
+.card:hover {
+  height: 100%;
 }
 
 .card img {
@@ -35,17 +40,20 @@
 }
 
 .description {
-  position: relative;
 }
 
-.description:before {
-  content:'';
-  width:100%;
-  height:100%;
-  position:absolute;
-  left:0;
-  top:0;
-  background: -webkit-linear-gradient( rgba(255,255,255,0), rgba(255,255,255,0.75) );
-  background: -o-linear-gradient( rgba(255,255,255,0), rgba(255,255,255,0.75) );
-  background: linear-gradient( rgba(255,255,255,0), rgba(255,255,255,0.75) );
+.description:hover {
+
+}
+
+.card:before {
+  content: '';
+  left: 0;
+  top: 150px;
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  background: -webkit-linear-gradient(rgba(255,255,255,0), white);
+  background: -o-linear-gradient(rgba(255,255,255,0), white);
+  background: linear-gradient(rgba(255,255,255,0), white);
 }
