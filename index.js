@@ -22,6 +22,19 @@ $(function() {
     var entry = data.feed.entry;
     console.log("entry = ", entry);
 
+    entry.map(function(row){
+      row.gsx$datum.$t = new Date(row.gsx$datum.$t);
+    });
+    entry = entry.sort(function(a, b){
+      if (a.gsx$datum.$t > b.gsx$datum.$t){
+        return 1;
+      } else if (a.gsx$datum.$t < b.gsx$datum.$t){
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
     $(entry).each(function(){
       $card = $('<div class="card"></div>');
 
