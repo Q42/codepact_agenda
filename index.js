@@ -19,24 +19,46 @@ var columns = [
 $(function() {
   $.getJSON(url, function(data) {
 
-    // grab all the data
     var entry = data.feed.entry;
     console.log("entry = ", entry);
 
-    // set up each row and add it to its respective group
     $(entry).each(function(){
-      $row = $('<tr></tr>');
+      $card = $('<div class="card"></div>');
 
-      $thumbnail = $('<td><img src="'+ this.gsx$afbeeldingurl.$t +'"><td>');
-      $row.append($thumbnail);
 
-      var self = this;
-      columns.forEach(function(columnHeader){
-        $row.append('<td>' + self[ 'gsx$' + columnHeader ].$t + '</td>');
-      });
+      $companyHeader = $('<div class="flex"></div');
+
+      $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
+
+      $dateAndLocation = $('<div></div');
+      $date = '<div class="date">'+ this.gsx$datumvisueel.$t +'</div>';
+      $location = '<div class="date">'+ this.gsx$plaats.$t +'</div>';
+      $dateAndLocation.append($date, $location);
+
+      $companyHeader.append($thumbnail, $dateAndLocation);
+
+
+      $nameAndCompany = $('<div></div>');
+      $name = ('<div class="eventName">'+ this.gsx$naamevenement.$t +'</div>');
+      $company = ('<div class="companyName">'+ this.gsx$partner.$t +'</div>');
+      $nameAndCompany.append($name, $company);
+
+
+      $card.append($companyHeader, $nameAndCompany);
+
+
+      if (this.gsx$link.$t){
+        $website = $('<a href="'+ this.gsx$link.$t +'"><div class="website">website</div></a>');
+        $card.append($website);
+      }
+
+
+      $description = $('<div class="description">'+ this.gsx$beschrijving.$t +'</div>');
+      $card.append($description);
+
 
       var doelgroep = this.gsx$doelgroep.$t;
-      $('#voor' + doelgroep).append($row);
+      $('#voor' + doelgroep).append($card);
     });
 
   });

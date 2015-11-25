@@ -2,13 +2,28 @@
   border-bottom: 1px solid;
 }
 
-table {
-  margin-bottom: 50px;
+#voorKinderen,
+#voorOuders,
+#voorLeerkrachten {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-td img {
-  object-fit: cover;
-  height: 200px;
+.flex {
+  display: flex;
+}
+
+.card {
+  margin: 50px;
   width: 200px;
-  margin: 10px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card img {
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 10px;
 }
