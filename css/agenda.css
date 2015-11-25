@@ -17,21 +17,24 @@
 .card {
   position: relative;
   width: 250px;
-  height: 250px;
+  max-height: 250px;
   overflow: hidden;
   background-color: white;
   margin: 20px;
   padding: 30px;
   border-radius: 1px;
   box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.25);
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }
 
 .card:hover {
-  height: auto;
+  max-height: 1000px;
 }
 
 .card:hover:before {
-  content: none;
+  opacity: 0;
 }
 
 .card img {
@@ -53,4 +56,8 @@
   background: -webkit-linear-gradient(rgba(255,255,255,0), white);
   background: -o-linear-gradient(rgba(255,255,255,0), white);
   background: linear-gradient(rgba(255,255,255,0), white);
+
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }
