@@ -14,7 +14,6 @@ var columns = [
   "plaats",
   "afbeeldingurl",
   "link",
-  "doelgroep",
   "beschrijving"
 ];
 
