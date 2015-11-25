@@ -12,7 +12,6 @@ var columns = [
   "naamevenement",
   "partner",
   "plaats",
-  "afbeeldingurl",
   "link",
   "beschrijving"
 ];
@@ -26,11 +25,16 @@ $(function() {
 
     // set up each row and add it to its respective group
     $(entry).each(function(){
-      var self = this;
       $row = $('<tr></tr>');
+
+      $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
+      $row.append($thumbnail);
+
+      var self = this;
       columns.forEach(function(columnHeader){
         $row.append('<td>' + self[ 'gsx$' + columnHeader ].$t + '</td>');
       });
+
       var doelgroep = this.gsx$doelgroep.$t;
       $('#voor' + doelgroep).append($row);
     });
