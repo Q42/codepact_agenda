@@ -27,7 +27,11 @@
 }
 
 .card:hover {
-  height: 100%;
+  height: auto;
+}
+
+.card:hover:before {
+  content: none;
 }
 
 .card img {
@@ -37,13 +41,6 @@
   border-radius: 100%;
   margin-right: 10px;
   margin-bottom: 10px;
-}
-
-.description {
-}
-
-.description:hover {
-
 }
 
 .card:before {
