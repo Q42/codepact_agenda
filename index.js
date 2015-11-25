@@ -27,7 +27,7 @@ $(function() {
     $(entry).each(function(){
       $row = $('<tr></tr>');
 
-      $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
+      $thumbnail = $('<td><img src="'+ this.gsx$afbeeldingurl.$t +'"><td>');
       $row.append($thumbnail);
 
       var self = this;
