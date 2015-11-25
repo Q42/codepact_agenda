@@ -24,11 +24,6 @@ $(function() {
     }
     $('#agenda').append($header);
 
-    // set up participant type groups
-    $Leerkrachten = $('<tbody></tbody>');
-    $Kinderen = $('<tbody></tbody>');
-    $Ouders = $('<tbody></tbody>');
-
     // set up each row and add it to its respective group
     $(entry).each(function(){
       var self = this;
@@ -37,15 +32,8 @@ $(function() {
         $row.append('<td>' + self[ 'gsx$' + columnHeader ].$t + '</td>');
       });
       var doelgroep = this.gsx$doelgroep.$t;
-      if (doelgroep === 'Leerkrachten') $Leerkrachten.append($row);
-      if (doelgroep === 'Kinderen') $Kinderen.append($row);
-      if (doelgroep === 'Ouders') $Ouders.append($row);
+      $('#voor' + doelgroep).append($row);
     });
-
-    // attach the groups to the table
-    $('#agenda').append($Leerkrachten);
-    $('#agenda').append($Kinderen);
-    $('#agenda').append($Ouders);
 
   });
 });
