@@ -8,13 +8,16 @@ var url = "https://spreadsheets.google.com/feeds/list/" + codepactSpreadsheetCop
 
 $(function() {
   $.getJSON(url, function(data) {
+    
     var entry = data.feed.entry;
     console.log("entry = ", entry);
 
     $header = $('<tr></tr>');
     var columnHeaders = [];
+    // loop over example row to get column headers
     for (var key in entry[0]){
       if (key.indexOf('gsx$') > -1){
+        // save the header to loop over later
         var header = key.slice(4);
         columnHeaders.push(header);
         $header.append($('<th>' + header + '</th>'));
@@ -26,8 +29,7 @@ $(function() {
       var self = this;
       $row = $('<tr></tr>');
       columnHeaders.forEach(function(columnHeader){
-        var key = 'gsx$' + columnHeader;
-        $row.append('<td>' + self[key].$t + '</td>');
+        $row.append('<td>' + self[ 'gsx$' + columnHeader ].$t + '</td>');
       });
       $('#agenda').append($row);
     });
