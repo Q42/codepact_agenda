@@ -9,5 +9,14 @@ $(function() {
   $.getJSON(url, function(data) {
     var entry = data.feed.entry;
     console.log("entry = ", entry);
+
+    $header = $('<tr></tr>');
+    for (var key in entry[0]){
+      if (key.indexOf('gsx$') > -1){
+        var header = key.slice(4);
+        $header.append($('<th>' + header + '</th>'));
+      }
+    }
+    $('#agenda').append($header);
   });
 });
