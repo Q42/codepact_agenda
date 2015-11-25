@@ -5,17 +5,6 @@ var codepactSpreadsheetCopyID = "17DYs_snLxkW2mCYotkJe4IpRvI4i9A0kBbkhNKvi3nc";
 
 var url = "https://spreadsheets.google.com/feeds/list/" + codepactSpreadsheetCopyID + "/1/public/values?alt=json";
 
-var columns = [
-  "datum",
-  "tijd",
-  "datumvisueel",
-  "naamevenement",
-  "partner",
-  "plaats",
-  "link",
-  "beschrijving"
-];
-
 $(function() {
   $.getJSON(url, function(data) {
 
