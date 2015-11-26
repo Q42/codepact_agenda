@@ -1,6 +1,7 @@
-.doelgroepLabel {
-  border-bottom: 1px solid;
+.section-header {
+  border-bottom: 3px solid #e7e7e7;;
   margin-top: 50px;
+  display: block;
 }
 
 #voorKinderen,
