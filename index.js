@@ -29,8 +29,6 @@ $(function() {
       var $card = $('<div class="card reduced"></div>');
 
 
-      var $companyHeader = $('<div class="flex"></div');
-
       var $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
 
       var $whereAndWhen = $('<div></div');
@@ -39,7 +37,7 @@ $(function() {
       var $company = ('<div class="companyName">'+ this.gsx$partner.$t +'</div>');
       $whereAndWhen.append($date, $location, $company);
 
-      $companyHeader.append($thumbnail, $whereAndWhen);
+      var $companyHeader = $('<div class="flex"></div').append($thumbnail, $whereAndWhen);
 
 
       var $name;
@@ -50,11 +48,10 @@ $(function() {
       }
 
 
-      $card.append($companyHeader, $name);
-
-
       var $description = $('<div class="description">'+ this.gsx$beschrijving.$t +'</div>');
-      $card.append($description);
+
+      
+      $card.append($companyHeader, $name, $description);
 
 
       var doelgroep = this.gsx$doelgroep.$t;
