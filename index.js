@@ -84,8 +84,9 @@ $(function() {
     Navigates between sections
   ******************************/
   $('.jumpTo').click(function(evt){
-    var destination = evt.target.getAttribute('data-destination');
-    $(document).scrollTop( $("#" + destination + "Header").offset().top );
+    var id = "#" + evt.target.getAttribute('data-destination') + "Header";
+    var destination = $(id).offset().top - 75;
+    $("html, body").animate({scrollTop: destination}, 1500);
   });
 
 });
