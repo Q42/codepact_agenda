@@ -6,6 +6,10 @@ body {
   border-bottom: 3px solid #e7e7e7;
 }
 
+.bottom-eventList-nav {
+  padding-bottom: 100px;
+}
+
 #voorKinderen,
 #voorOuders,
 #voorLeerkrachten {
