@@ -33,27 +33,26 @@ $(function() {
 
       $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
 
-      $dateAndLocation = $('<div></div');
+      $whereAndWhen = $('<div></div');
       $date = '<div class="date">'+ this.gsx$datumvisueel.$t +'</div>';
       $location = '<div class="date">'+ this.gsx$plaats.$t +'</div>';
-      $dateAndLocation.append($date, $location);
-
-      $companyHeader.append($thumbnail, $dateAndLocation);
-
-
-      $nameAndCompany = $('<div></div>');
-      $name = ('<div class="eventName">'+ this.gsx$naamevenement.$t +'</div>');
       $company = ('<div class="companyName">'+ this.gsx$partner.$t +'</div>');
-      $nameAndCompany.append($name, $company);
+      $whereAndWhen.append($date, $location, $company);
+
+      $companyHeader.append($thumbnail, $whereAndWhen);
 
 
-      $card.append($companyHeader, $nameAndCompany);
-
-
+      var $name;
       if (this.gsx$link.$t){
-        $website = $('<a href="'+ this.gsx$link.$t +'"><div class="website">website</div></a>');
-        $card.append($website);
+        $name = $('<a href="'+ this.gsx$link.$t +'"><div class="eventName">'+ this.gsx$naamevenement.$t +'</div></a>');
+      } else {
+        $name = ('<div class="eventName">'+ this.gsx$naamevenement.$t +'</div>');
       }
+
+
+      $card.append($companyHeader, $name);
+
+
 
 
       $description = $('<div class="description">'+ this.gsx$beschrijving.$t +'</div>');
