@@ -26,17 +26,17 @@ $(function() {
       Attaches data to the page
     ******************************/
     $(entry).each(function(){
-      $card = $('<div class="card reduced"></div>');
+      var $card = $('<div class="card reduced"></div>');
 
 
-      $companyHeader = $('<div class="flex"></div');
+      var $companyHeader = $('<div class="flex"></div');
 
-      $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
+      var $thumbnail = $('<img src="'+ this.gsx$afbeeldingurl.$t +'">');
 
-      $whereAndWhen = $('<div></div');
-      $date = '<div class="date">'+ this.gsx$datumvisueel.$t +'</div>';
-      $location = '<div class="date">'+ this.gsx$plaats.$t +'</div>';
-      $company = ('<div class="companyName">'+ this.gsx$partner.$t +'</div>');
+      var $whereAndWhen = $('<div></div');
+      var $date = '<div class="date">'+ this.gsx$datumvisueel.$t +'</div>';
+      var $location = '<div class="date">'+ this.gsx$plaats.$t +'</div>';
+      var $company = ('<div class="companyName">'+ this.gsx$partner.$t +'</div>');
       $whereAndWhen.append($date, $location, $company);
 
       $companyHeader.append($thumbnail, $whereAndWhen);
@@ -53,9 +53,7 @@ $(function() {
       $card.append($companyHeader, $name);
 
 
-
-
-      $description = $('<div class="description">'+ this.gsx$beschrijving.$t +'</div>');
+      var $description = $('<div class="description">'+ this.gsx$beschrijving.$t +'</div>');
       $card.append($description);
 
 
