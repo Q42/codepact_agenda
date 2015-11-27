@@ -50,10 +50,7 @@ body {
   overflow: hidden;
 }
 
-.reduced:before {
-  -webkit-transition: all 1.8s linear;
-  -moz-transition: all 1.8s linear;
-  transition: all 1.8s linear;
+.card:before {
   content: '';
   left: 0;
   top: 150px;
@@ -63,7 +60,10 @@ body {
   background: -webkit-linear-gradient(rgba(255,255,255,0), white);
   background: -o-linear-gradient(rgba(255,255,255,0), white);
   background: linear-gradient(rgba(255,255,255,0), white);
-
+  
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 .expanded {
@@ -71,11 +71,7 @@ body {
 }
 
 .expanded:before {
-  -webkit-transition: all 1.8s linear;
-  -moz-transition: all 1.8s linear;
-  transition: all 1.8s linear;
   opacity: 0;
-
 }
 
 .eventName {
