@@ -26,7 +26,7 @@ $(function() {
       Attaches data to the page
     ******************************/
     $(entry).each(function(){
-      $card = $('<div class="card"></div>');
+      $card = $('<div class="card reduced"></div>');
 
 
       $companyHeader = $('<div class="flex"></div');
@@ -62,6 +62,20 @@ $(function() {
 
       var doelgroep = this.gsx$doelgroep.$t;
       $('#voor' + doelgroep).append($card);
+    });
+
+    /******************************
+      Expand and reduce cards
+    ******************************/
+    $('.card').on('click', function(evt){
+      $card = $(evt.target).closest('.card');
+      if ($card.hasClass('reduced')){
+        $card.removeClass('reduced');
+        $card.addClass('expanded');
+      } else {
+        $card.removeClass('expanded');
+        $card.addClass('reduced');
+      }
     });
 
   });
