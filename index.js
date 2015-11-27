@@ -6,6 +6,9 @@ var codepactSpreadsheetCopyID = "17DYs_snLxkW2mCYotkJe4IpRvI4i9A0kBbkhNKvi3nc";
 var url = "https://spreadsheets.google.com/feeds/list/" + codepactSpreadsheetCopyID + "/1/public/values?alt=json";
 
 $(function() {
+  /******************************
+    Gets data from spreadsheet
+  ******************************/
   $.getJSON(url, function(data) {
 
     var entry = data.feed.entry;
@@ -24,6 +27,9 @@ $(function() {
       }
     });
 
+    /******************************
+      Attaches data to the page
+    ******************************/
     $(entry).each(function(){
       $card = $('<div class="card"></div>');
 
@@ -64,4 +70,13 @@ $(function() {
     });
 
   });
+
+  /******************************
+    Navigates between sections
+  ******************************/
+  $('.jumpTo').click(function(evt){
+    var destination = evt.target.getAttribute('data-destination');
+    $(document).scrollTop( $("#" + destination + "Header").offset().top );
+  });
+
 });
